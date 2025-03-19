@@ -1,0 +1,383 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Playfair', serif;
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Lora', serif;
+  font-size: 16px;
+}
+
+header {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url('assets/images/BowenHeader.webp');
+  background-size: cover;
+  background-position: center;
+  color: #75ba75;
+  font-size: 18px;
+  font-weight: bolder;
+  height: 100vh;
+  width: 100vw;
+}
+
+.headerText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 15%;
+}
+
+header p {
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 900;
+  letter-spacing: 0.1rem;
+  padding-top: 100px;
+  text-align: start;
+}
+
+header h1 {
+  color: white;
+  font-family: 'playfair', serif;
+  font-size: 6rem;
+  letter-spacing: 0.07rem;
+  padding-top: 5px;
+}
+
+header h2 {
+  color: white;
+  font-family: 'lora', serif;
+  font-size: 1.3rem;
+  font-weight: 500;
+  letter-spacing: 0.1rem;
+  padding-top: 30px;
+  width: 50%;
+}
+
+.headerContainer {
+  background-color: transparent;
+  display: flex;
+}
+
+.logo img {
+  background-color: transparent;
+  border-radius: 50%;
+  display: flex;
+  height: 80px;
+  justify-content: flex-start;
+  margin-left: 60px;
+  width: 80px;
+}
+
+.btnProgramare {
+  background-color: #75ba75;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-family: inherit;
+  font-size: 1.4rem;
+  margin-left: 15%;
+  margin-top: 30px;
+  padding: 10px 20px;
+  text-decoration: none;
+}
+
+.nav-bar {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin: 0 auto;
+}
+
+.programare {
+  display: flex;
+  align-items: center;
+  margin-right: 60px;
+}
+
+.nav-bar a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.nav-bar li {
+  list-style: none;
+}
+
+.beneficii {
+  background-color: #e7e7e7;
+  display: flex;
+  justify-content: center;
+}
+
+.centerBeneficii {
+  width: 50%;
+}
+
+.beneficii h1 {
+  color: #75ba75;
+  font-family: 'playfair', serif;
+  font-size: 3rem;
+  font-weight: 900;
+  margin-top: 70px;
+  text-align: center;
+}
+
+.beneficii h2 {
+  color: #888888;
+  font-family: 'lora', serif;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  margin-top: 70px;
+  text-align: center;
+}
+
+.beneficii ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.beneficii li {
+  color: #888888;
+  display: inline-block;
+  font-family: 'lora', serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  list-style: none;
+  margin-right: 20px;
+  margin-top: 20px;
+  padding-left: 2px;
+}
+
+.beneficii li::before {
+  color: #75ba75;
+  content: '✔';
+  font-size: 1.5rem;
+  left: -25px;
+  top: 0;
+}
+
+.beneficii button {
+  background-color: #75ba75;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  display: block;
+  font-family: inherit;
+  font-size: 1.4rem;
+  margin-bottom: 80px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 80px;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.imagesSection {
+  margin-top: 150px;
+}
+
+.imagesContainer {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  width: 70%;
+}
+
+.imagesContainer img {
+  background-size: cover;
+  display: flex;
+  height: 600px;
+  justify-content: center;
+  width: 600px;
+}
+
+.imagesContainer .text {
+  background-color: #dbdbf9;
+  height: 600px;
+  width: 600px;
+}
+
+.firstLine,
+.secondLine {
+  display: flex;
+  flex-direction: row;
+}
+
+.imagesContainer h2 {
+  color: #888888;
+  display: flex;
+  font-family: 'Lora', serif;
+  font-size: 1.8rem;
+  font-weight: 500;
+  justify-content: center;
+  margin-top: 50px;
+  padding: 0 55px;
+  text-align: center;
+}
+
+.imagesContainer h1 {
+  color: #75ba75;
+  font-family: 'Playfair', serif;
+  font-size: 3rem;
+  margin-top: 120px;
+  text-align: center;
+}
+
+.imagesContainer button {
+  background-color: #75ba75;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  display: block;
+  font-family: inherit;
+  font-size: 1.4rem;
+  margin-bottom: 80px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 80px;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+}
+.bodyMap {
+  display: flex;
+  justify-content: center;
+  margin-top: 150px;
+  width: 850px;
+  margin: 0 auto;
+  margin-top: 150px;
+}
+
+.terapeut {
+  display: flex;
+  justify-content: center;
+  margin-top: 150px;
+  width: 850px;
+  margin: 0 auto;
+  font-family: 'Lora', serif;
+  color: #888888;
+}
+
+.terapeutContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 150px;
+}
+.terapeutText h1 {
+  margin-bottom: 50px;
+  color: #75ba75;
+  letter-spacing: 0.07rem;
+  text-align: center;
+}
+.terapeutText h2 {
+  font-size: 1.4rem;
+  letter-spacing: 0.1rem;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.terapeutText .btnProgramare {
+  display: flex;
+  justify-content: center;
+  justify-self: center;
+  margin-top: 50px;
+  margin-bottom: 150px;
+  margin-left: 150px;
+}
+.terapeutImage img {
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-left: 60px;
+}
+
+footer {
+  background-color: #5d5d5d;
+}
+footer .footerContainer {
+  display: flex;
+  flex-direction: row;
+}
+footer img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-left: 50px;
+}
+
+footer .nav-bar {
+  color: #75ba75;
+  font-size: 2rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateX(-80px);
+}
+.footerCopyright {
+  color: white;
+  font-size: 1.4rem;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.intrebariFrecventeContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 150px;
+  width: 850px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+.intrebariFrecvente h1 {
+  text-align: center;
+  font-family: 'playfair', serif;
+  color: #75ba75;
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 50px;
+  margin-top: 150px;
+  margin-bottom: 0;
+}
+.intrebare {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 850px;
+}
+.intrebare span {
+  cursor: pointer;
+}
+.intrebare p {
+  text-align: center;
+}
+.intrebare h2 {
+  color: #75ba75;
+  font-family: 'lora', serif;
+  font-size: 1.8rem;
+  font-weight: 900;
+  margin-top: 20px;
+}
+.intrebare p {
+  color: #888888;
+  font-family: 'lora', serif;
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-top: 20px;
+}
