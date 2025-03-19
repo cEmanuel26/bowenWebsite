@@ -87,6 +87,12 @@ header h2 {
   padding: 10px 20px;
   text-decoration: none;
 }
+.btnProgramare:hover {
+  background-color: transparent;
+  border: 0.05px solid white;
+  transform: scale(0.983);
+  transition: background-color 0.3s ease, border 0.3s ease;
+}
 
 .nav-bar {
   display: flex;
@@ -262,7 +268,7 @@ header h2 {
   margin-bottom: 80px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 80px;
+  margin-top: 40px;
   padding: 10px 20px;
   text-align: center;
   text-decoration: none;
@@ -464,4 +470,9 @@ footer .nav-bar {
   display: block;
   margin: 0 auto;
   margin-bottom: 80px;
+}
+
+button:hover {
+  background-color: #5cb85c;
+  cursor: pointer;
 }
