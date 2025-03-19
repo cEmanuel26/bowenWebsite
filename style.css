@@ -208,6 +208,22 @@ header h2 {
   height: 600px;
   width: 600px;
 }
+.text ul {
+  margin-top: 15px;
+}
+.text li {
+  color: #888888;
+  font-family: 'lora', serif;
+  font-size: 1.5rem;
+  list-style: none;
+  text-align: center;
+  margin-top: 10px;
+}
+.text li:before {
+  content: '\2014';
+  position: absolute;
+  margin-left: -20px;
+}
 
 .firstLine,
 .secondLine {
