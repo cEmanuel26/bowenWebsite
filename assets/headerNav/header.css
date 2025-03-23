@@ -25,7 +25,7 @@ body {
   width: 100%;
   z-index: 1000;
   background-color: white;
-  transition: all 0.5s ease;
+  transition: all 0.5s ease-in-out;
   border-bottom: 1px solid #75ba75;
 }
 
@@ -37,6 +37,14 @@ body {
   justify-content: flex-start;
   margin-left: 60px;
   width: 80px;
+}
+.logoText img {
+  margin-left: 20px;
+  position: absolute;
+  display: flex;
+  height: 80px;
+  width: 160px;
+  margin-top: 5px;
 }
 
 .btnProgramare {
@@ -78,4 +86,20 @@ body {
 
 .nav-bar li {
   list-style: none;
+  font-size: 18px;
+  font-weight: bolder;
+}
+.underline {
+  display: none;
+  border-top: 2px solid #fff;
+  width: 15px;
+  margin: 0 auto;
+  margin-top: 2px;
+}
+.nav-bar li:hover .underline {
+  display: block;
+  transition: color 0.3s ease;
+}
+.nav-bar li:hover {
+  color: white;
 }
