@@ -1,0 +1,57 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-family: 'Playfair', serif;
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Lora', serif;
+  font-size: 16px;
+}
+.header {
+  text-align: center;
+  font-size: 5.5rem;
+  margin: 40px 0;
+  font-family: 'Playfair', serif;
+}
+main {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+  width: 100vw;
+  gap: 50px;
+}
+.appointment,
+.login {
+  width: 30%;
+}
+.appointment .container {
+  text-align: center;
+  padding-right: 100px;
+}
+.appointment {
+  border-right: 1px solid #75ba75;
+  padding-right: 90px;
+  color: #888888;
+}
+.appointment a {
+  text-decoration: none;
+  color: #888888;
+}
+.login .container,
+.login .container form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.login .container form {
+  gap: 10px;
+  color: #888888;
+}
