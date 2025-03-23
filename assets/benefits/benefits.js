@@ -9,7 +9,6 @@ const observer = new IntersectionObserver((entries) => {
 });
 const observer2 = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
-    console.log(entry);
     if (entry.isIntersecting) {
       entry.target.classList.add('show-right');
     } else {

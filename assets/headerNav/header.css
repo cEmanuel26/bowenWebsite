@@ -86,8 +86,10 @@ body {
 }
 .programare span:hover {
   background-color: white;
-  color: #75ba75;
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+.sticky .programare span a:hover {
+  color: #896bee;
 }
 .programare a {
   color: #75ba75;
@@ -119,4 +121,10 @@ body {
 }
 .nav-bar li:hover {
   color: white;
+}
+.sticky .nav-bar li:hover {
+  color: #896bee;
+}
+.sticky .nav-bar li:hover .underline {
+  border-top: 2px solid #896bee;
 }

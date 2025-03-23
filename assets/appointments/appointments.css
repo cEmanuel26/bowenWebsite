@@ -11,6 +11,7 @@ html {
 body {
   font-family: 'Lora', serif;
   font-size: 16px;
+  background-color: #e7e7e7;
 }
 .header {
   text-align: center;
@@ -54,4 +55,28 @@ main {
 .login .container form {
   gap: 10px;
   color: #888888;
+}
+form button {
+  background-color: #75ba75;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  display: block;
+  font-family: inherit;
+  font-size: 1.4rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  margin-top: 20px;
+}
+form button:hover {
+  background-color: #5a8f5a;
+}
+form input {
+  border: 1px solid #75ba75;
+  border-radius: 5px;
+  padding: 5px;
+  width: 100%;
 }
