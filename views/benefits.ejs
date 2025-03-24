@@ -9,13 +9,13 @@
       href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/assets/benefits/benefits.css" />
-    <link rel="icon" type="image/x-icon" href="../images/favicon.ico" />
+    <link rel="stylesheet" href="/stylesheets/benefits.css" />
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
 
     <title>Beneficii Terapia Bowen Siret</title>
   </head>
   <body>
-    <nav id="headerNavbar"></nav>
+    <%- include('partials/header'); -%>
     <header>
       <div class="centerHeader">
         <h2>Descopera multele</h2>
@@ -53,14 +53,14 @@
         </div>
         <img
           class="hidden-right"
-          src="/assets/images/muscoskeletal.webp"
+          src="/images/muscoskeletal.webp"
           alt="musculoskeletal"
         />
       </section>
       <section class="neurological">
         <img
           class="hidden-left"
-          src="/assets/images/neuronal.webp"
+          src="/images/neuronal.webp"
           alt="musculoskeletal"
         />
 
@@ -91,14 +91,14 @@
         </div>
         <img
           class="hidden-right"
-          src="/assets/images/digestive.webp"
+          src="/images/digestive.webp"
           alt="musculoskeletal"
         />
       </section>
       <section class="reproductive">
         <img
           class="hidden-left"
-          src="/assets/images/digestive.webp"
+          src="/images/reproductive.webp"
           alt="musculoskeletal"
         />
         <div class="conditii hidden-right">
@@ -125,14 +125,13 @@
         </div>
         <img
           class="hidden-right"
-          src="/assets/images/digestive.webp"
+          src="images/respiratory.webp"
           alt="musculoskeletal"
         />
       </section>
     </main>
-    <footer id="footer"></footer>
+    <%- include('partials/footer'); -%>
   </body>
-  <script src="/assets/imports/imports.js"></script>
-  <script src="/assets/benefits/benefits.js"></script>
-  <script src="/assets/headerNav/header.js"></script>
+  <script src="/javascripts/benefits.js"></script>
+  <script src="/javascripts/header.js"></script>
 </html>

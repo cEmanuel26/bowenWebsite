@@ -4,41 +4,48 @@
   href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap"
   rel="stylesheet"
 />
-<link rel="stylesheet" href="/assets/headerNav/header.css" />
+<link rel="stylesheet" href="/stylesheets/header.css" />
 
 <div class="headerContainer">
   <div class="logo">
-    <img
-      src="../../assets/images/LogoLavender.png"
-      alt="arbore de lavandă logo "
-    />
+    <img src="images/LogoLavender.png" alt="arbore de lavandă logo " />
   </div>
   <div class="logoText">
     <img
-      src="../../assets/images/LogoBowenText.png"
+      src="/images/LogoBowenText.png"
       alt="terapia bowen logo text"
       style="max-height: 80px"
     />
   </div>
   <div class="nav-bar middle">
     <li>
-      <a href="../../index.html">Acasa</a>
+      <a href="/">Acasa</a>
       <div class="underline"></div>
     </li>
     <li>
-      <a href="../../assets/about/about.html">Despre</a>
+      <a href="/about">Despre</a>
       <div class="underline"></div>
     </li>
     <li>
-      <a href="../../assets/benefits/benefits.html">Beneficii</a>
+      <a href="/benefits">Beneficii</a>
       <div class="underline"></div>
     </li>
     <li>
-      <a href="/assets/contact/contact.html">Contact</a>
+      <a href="/contact">Contact</a>
       <div class="underline"></div>
     </li>
   </div>
   <div class="right-side programare">
-    <span><a href="/assets/appointments/appointments.html">Programari</a></span>
+    <% if (email) { %>
+    <h4><%= email %></h4>
+    <% } else { %>
+    <h4></h4>
+    <% } %>
+    <form action="/logout?_method=DELETE" method="POST">
+      <button class="logoutButton" type="submit">Log out</button>
+    </form>
+    <a href="/appointments">Programari</a>
   </div>
 </div>
+
+<script defer src="/javascripts/header.js"></script>

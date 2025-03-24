@@ -15,15 +15,15 @@ body {
 
 header {
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url('/assets/images/toa-heftiba-hBLf2nvp-Yc-unsplash.jpg');
+    url('/images/toa-heftiba-hBLf2nvp-Yc-unsplash.jpg');
   background-size: cover;
   background-position: center;
   color: #75ba75;
   font-size: 18px;
   font-weight: bolder;
+  position: absolute;
   height: 50vh;
   width: 100vw;
-  position: absolute;
   top: 0;
   left: 0;
   z-index: 1;
@@ -58,7 +58,8 @@ header {
   text-align: center;
   padding-top: 20px;
 }
-nav {
+.nav-bar,
+.headerContainer {
   position: relative;
   z-index: 2;
 }

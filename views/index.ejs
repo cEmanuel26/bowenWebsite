@@ -9,17 +9,18 @@
       href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="humanSvg.css" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="/stylesheets/humanSvg.css" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="icon" type="image/x-icon" href="./assets/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     <title>
         Terapia Bowen in Siret / Radauti
     </title>
   </head>
   <body>
     <header class="header">
-      <nav id="headerNavbar"></nav>
+      <%- include('partials/header'); -%>
+
       <div class="headerText">
         <p>Bine a-ti venit la</p>
         <h1>Terapia Bowen</h1>
@@ -68,7 +69,7 @@
           <div class="firstLine">
             <div>
               <img
-                src="./assets/images/massage1.jpg"
+                src="/images/massage1.jpg"
                 alt="tehnica masaj bowen"
               />
             </div>
@@ -106,7 +107,7 @@
             </div>
             <div>
               <img
-                src="./assets/images/massage2.jpg"
+                src="/images/massage2.jpg"
                 alt="tehnica masaj bowen "
               />
             </div>
@@ -1609,12 +1610,12 @@
               Ce este terapia Bowen?
               <span>
                 <img
-                  src="./assets/svg/add_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
+                  src="/svg/add_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
                   alt="arrow down"
                   class="arrow-down"
                 />
                 <img
-                  src="./assets/svg/close_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
+                  src="/svg/close_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
                   alt="arrow up"
                   class="arrow-up"
                 />
@@ -1632,12 +1633,12 @@
               Cum funcționează terapia Bowen?
               <span>
                 <img
-                  src="./assets/svg/add_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
+                  src="/svg/add_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
                   alt="arrow down"
                   class="arrow-down"
                 />
                 <img
-                  src="./assets/svg/close_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
+                  src="/svg/close_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
                   alt="arrow up"
                   class="arrow-up"
                 />
@@ -1655,12 +1656,12 @@
               Care sunt beneficiile terapiei Bowen?
               <span>
                 <img
-                  src="./assets/svg/add_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
+                  src="/svg/add_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
                   alt="arrow down"
                   class="arrow-down"
                 />
                 <img
-                  src="./assets/svg/close_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
+                  src="/svg/close_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
                   alt="arrow up"
                   class="arrow-up"
                 />
@@ -1677,12 +1678,12 @@
               Cate sedinte am nevoie?
               <span>
                 <img
-                  src="./assets/svg/add_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
+                  src="/svg/add_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
                   alt="arrow down"
                   class="arrow-down"
                 />
                 <img
-                  src="./assets/svg/close_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
+                  src="/svg/close_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
                   alt="arrow up"
                   class="arrow-up"
                 />
@@ -1700,12 +1701,12 @@
               Este terapia Bowen dureroasă?
               <span>
                 <img
-                  src="./assets/svg/add_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
+                  src="/svg/add_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
                   alt="arrow down"
                   class="arrow-down"
                 />
                 <img
-                  src="./assets/svg/close_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
+                  src="/svg/close_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
                   alt="arrow up"
                   class="arrow-up"
                 />
@@ -1722,12 +1723,12 @@
               Cine poate beneficia de terapia Bowen?
               <span>
                 <img
-                  src="./assets/svg/add_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
+                  src="/svg/add_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
                   alt="arrow down"
                   class="arrow-down"
                 />
                 <img
-                  src="./assets/svg/close_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
+                  src="/svg/close_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
                   alt="arrow up"
                   class="arrow-up"
                 />
@@ -1745,12 +1746,12 @@
               Ce ar trebui să port la o ședință de terapie Bowen?
               <span>
                 <img
-                  src="./assets/svg/add_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
+                  src="/svg/add_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
                   alt="arrow down"
                   class="arrow-down"
                 />
                 <img
-                  src="./assets/svg/close_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
+                  src="/svg/close_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
                   alt="arrow-up"
                   class="arrow-up"
                 />
@@ -1767,12 +1768,12 @@
               Există contraindicații pentru terapia Bowen?
               <span>
                 <img
-                  src="./assets/svg/add_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
+                  src="/svg/add_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
                   alt="arrow down"
                   class="arrow-down"
                 />
                 <img
-                  src="./assets/svg/close_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
+                  src="/svg/close_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg"
                   alt="arrow-up"
                   class="arrow-up"
                 />
@@ -1793,7 +1794,7 @@
           <h1>Ce spun pacientii despre terapia bowen</h1>
           <div class="testimonialsContainer">
             <div class="testimonial">
-              <img src="./assets/images/christopher-campbell-rDEOVtE7vOs-unsplash.jpg" alt="testimonial1" />
+              <img src="images/christopher-campbell-rDEOVtE7vOs-unsplash.jpg" alt="testimonial1" />
               <div>
                 <h2>Ameliorare dureri de spate</h2>
                 <p>
@@ -1804,7 +1805,7 @@
               </div>
             </div>
             <div class="testimonial">
-              <img src="./assets/images/christopher-campbell-rDEOVtE7vOs-unsplash.jpg" alt="testimonial2" />
+              <img src="images/christopher-campbell-rDEOVtE7vOs-unsplash.jpg" alt="testimonial2" />
               <div>
                 <h2>Recuperare dupa accidentare</h2>
                 <p>
@@ -1816,7 +1817,7 @@
               </div>
             </div>
             <div class="testimonial">
-              <img src="./assets/images/christopher-campbell-rDEOVtE7vOs-unsplash.jpg" alt="testimonial3" />
+              <img src="/images/christopher-campbell-rDEOVtE7vOs-unsplash.jpg" alt="testimonial3" />
               <div>
                 <h2>Stres și anxietate</h2>
                 <p>
@@ -1846,16 +1847,16 @@
             <button class="btnTerapeutProgramare">Programeaza o sedinta</button>
           </div>
           <div class="terapeutImage">
-            <img src="./assets/images/therapeut.jpg" alt="terapeut bowen" />
+            <img src="/images/therapeut.jpg" alt="terapeut bowen" />
           </div>
         </div>
       </section>
     </main>
-    <footer id="footer"></footer>
+    <%- include('partials/footer'); -%>
+
   </body>
-  <script src="script.js"></script>
-  <script src="humanSvgScript.js"></script>
-  <script src="./assets/imports/imports.js"></script>
-  <script src="./assets/headerNav/header.js"></script>
+  <script src="/javascripts/script.js"></script>
+  <script src="/javascripts/humanSvgScript.js"></script>
+  <script src="/javascripts/header.js"></script>
 
 </html>

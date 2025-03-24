@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/stylesheets/appointments.css" />
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <%- include('partials/header'); -%>
+
+    <h2 class="header">Programari</h2>
+    <main>
+      <section class="appointment">
+        <div class="container">
+          <h2>Programari telefon</h2>
+          <p>+40742374865</p>
+          <h2>Programari prin email la</h2>
+          <p>
+            <a href="mailto:" class="email">terapiabowensiret@gmail.com</a>
+          </p>
+        </div>
+      </section>
+      <section class="login">
+        <div class="container">
+          <h2>Login</h2>
+          <form action="/login" method="POST">
+            <label for="email">Email utilizator</label>
+            <input type="text" id="email" name="email" required />
+            <label for="password">Parola</label>
+            <input type="password" id="password" name="password" required />
+            <div class="loginRegister">
+              <button type="submit">Logare</button>
+              <button id="register">Inregistrare</button>
+            </div>
+            <% if(messages.error){%> <%= messages.error %> <%}%>
+          </form>
+        </div>
+      </section>
+    </main>
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Inregistrare</h2>
+        <form action="/register" method="POST">
+          <label for="regusername">Email utilizator</label>
+          <input type="email" id="regusername" name="regusername" required />
+          <label for="regpassword">Parola</label>
+          <input type="password" id="regpassword" name="regpassword" required />
+          <label for="confirmpassword">Confirma Parola</label>
+          <input
+            type="password"
+            id="confirmpassword"
+            name="confirmpassword"
+            required
+          />
+          <p class="passwordError">Passwords don`t match</p>
+          <button id="registerSend" type="submit">Inregistrare</button>
+        </form>
+      </div>
+    </div>
+
+    <%- include('partials/footer'); -%>
+  </body>
+  <script src="/javascripts/header.js"></script>
+  <script src="/javascripts/appointments.js"></script>
+</html>

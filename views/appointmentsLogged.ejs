@@ -9,13 +9,13 @@
       href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/assets/appointments/appointments.css" />
-    <link rel="icon" type="image/x-icon" href="../images/favicon.ico" />
+    <link rel="stylesheet" href="/stylesheets/appointments.css" />
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
 
     <title>Document</title>
   </head>
   <body>
-    <nav id="headerNavbar"></nav>
+    <%- include('partials/header'); -%>
 
     <h2 class="header">Programari</h2>
     <main>
@@ -29,22 +29,12 @@
           </p>
         </div>
       </section>
-      <section class="login">
-        <div class="container">
-          <h2>Login</h2>
-          <form action="">
-            <label for="username">Email utilizator</label>
-            <input type="text" id="username" />
-            <label for="password">Parola</label>
-            <input type="password" id="password" />
-            <button type="submit">Logare</button>
-          </form>
-        </div>
+      <section class="appointmentCalendar">
+        <h1>Programari online</h1>
+        <div>calendar</div>
       </section>
     </main>
-    <footer id="footer"></footer>
+    <%- include('partials/footer'); -%>
   </body>
-  <script src="/assets/imports/imports.js"></script>
-  <script src="/assets/headerNav/header.js"></script>
-  <script src="/assets/appointments/appointments.js"></script>
+  <script src="/javascripts/header.js"></script>
 </html>

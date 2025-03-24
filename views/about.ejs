@@ -9,13 +9,16 @@
       href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/assets/about/about.css" />
-    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+
+    <link  rel="stylesheet" href="/stylesheets/about.css" />
+
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 
     <title>Despre terapia bowen | Siret</title>
   </head>
   <body>
-    <nav id="headerNavbar"></nav>
+     <%- include('partials/header'); -%>
+
     <header>
       <h1>Despre terapia bowen</h1>
     </header>
@@ -68,7 +71,7 @@
       <h1>Originea terapiei bowen</h1>
       <div class="container">
         <img
-          src="/assets/images/tomBowen.jpg"
+          src="/images/tomBowen.jpg"
           alt="fondatorul terapiei bowen"
         />
         <div class="container">
@@ -144,7 +147,7 @@
         </div>
         <div class="terapeutImg">
           <p>Căpățînă Daniela</p>
-          <img src="/assets/images/therapeut.jpg" alt="terapeut bowen" />
+          <img src="/images/therapeut.jpg" alt="terapeut bowen" />
           <div class="certifications">
             <h4>Certificate</h4>
             <img src="https://placehold.co/60x60" alt="certificare" />
@@ -153,8 +156,8 @@
         </div>
       </section>
     </main>
-    <footer id="footer"></footer>
+    <%- include('partials/footer'); -%>
+
   </body>
-  <script src="/assets/imports/imports.js"></script>
-  <script src="/assets/headerNav/header.js"></script>
+  <script defer src="/javascripts/header.js"></script>
 </html>

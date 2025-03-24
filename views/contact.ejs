@@ -9,13 +9,13 @@
       href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/assets/contact/contact.css" />
-    <link rel="icon" type="image/x-icon" href="../images/favicon.ico" />
+    <link rel="stylesheet" href="/stylesheets/contact.css" />
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
 
     <title>Contactați-ne | Terapie Bowen în Siret</title>
   </head>
   <body>
-    <nav id="headerNavbar"></nav>
+    <%- include('partials/header'); -%>
 
     <div class="container">
       <!-- Contact Information -->
@@ -50,7 +50,7 @@
           <label for="message">Ce conține mesajul tău:</label>
           <textarea id="message" name="message" rows="4" required></textarea>
 
-          <button type="submit">Trimite mesaj</button>
+          <button class="mesaj" type="submit">Trimite mesaj</button>
         </form>
       </section>
 
@@ -78,9 +78,8 @@
         </ul>
       </section>
     </div>
-    <footer id="footer"></footer>
+    <%- include('partials/footer'); -%>
   </body>
-  <script src="/assets/imports/imports.js"></script>
-  <script src="/assets/headerNav/header.js"></script>
-  <script src="/assets/contact/contact.js"></script>
+  <script src="/javascripts/header.js"></script>
+  <script src="/javascripts/contact.js"></script>
 </html>
