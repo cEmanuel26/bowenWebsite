@@ -5,7 +5,6 @@
   rel="stylesheet"
 />
 <link rel="stylesheet" href="/stylesheets/header.css" />
-
 <div class="headerContainer">
   <div class="logo">
     <img src="images/LogoLavender.png" alt="arbore de lavandă logo " />
@@ -34,13 +33,18 @@
       <a href="/contact">Contact</a>
       <div class="underline"></div>
     </li>
+    <% if (isAdmin) { %>
+    <li><a href="/admin">Dashboard</a></li>
+    <% } %> <% if (email) %>
   </div>
   <div class="right-side programare">
-    <% if (email) { %>
-    <h4><%= email %></h4>
-    <% } else { %>
-    <h4></h4>
-    <% } %>
+    <div class="loggedIn">
+      <% if (email) { %>
+      <h4><%= email %></h4>
+      <% } else { %>
+      <h4></h4>
+      <% } %>
+    </div>
     <form action="/logout?_method=DELETE" method="POST">
       <button class="logoutButton" type="submit">Log out</button>
     </form>
@@ -49,3 +53,4 @@
 </div>
 
 <script defer src="/javascripts/header.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.17/index.global.min.js"></script>

@@ -1,0 +1,153 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Playfair', serif;
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Lora', serif;
+  font-size: 16px;
+  background-color: #e7e7e7;
+}
+.wrapper {
+  min-height: 20vh; /* Ensure the wrapper takes the full viewport height */
+  display: flex;
+  flex-direction: column;
+}
+.textCenter {
+  text-align: center;
+  margin-top: 200px;
+}
+.textCenter p {
+  font-size: 2rem;
+  color: #888888;
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+footer {
+  margin-top: auto; /* Push the footer to the bottom when content is insufficient */
+}
+.container {
+  flex: 1;
+}
+.adminTable {
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+.adminTable table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 1px solid #ddd;
+}
+
+.adminTable th,
+.adminTable td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+  white-space: normal; /* Allow content to break into multiple lines if needed */
+  word-wrap: break-word; /* Ensure long words wrap instead of overflow */
+}
+
+.adminTable th {
+  background-color: #f2f2f2;
+  cursor: pointer;
+  font-size: 1.4rem;
+}
+
+.adminTable th.id {
+  width: auto; /* Let the "Id" column width adjust based on content */
+}
+
+.adminTable th.name {
+  width: auto; /* Let the "Name" column width adjust based on content */
+}
+
+.adminTable th.date,
+.adminTable th.hour {
+  width: auto; /* Let the "Date" and "Hour" columns adjust based on content */
+}
+
+.adminTable th.mentiuni,
+.adminTable th.email,
+.adminTable th.phone,
+.adminTable th.details,
+.adminTable th.move,
+.adminTable th.address {
+  width: auto; /* Adjust other columns automatically */
+}
+
+.adminTable tbody {
+  max-height: 400px;
+  overflow-y: auto; /* Allow scrolling */
+}
+
+.adminTable tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.adminTable tr:hover {
+  background-color: #888888;
+}
+
+.adminTable thead {
+  background-color: #f2f2f2;
+}
+
+.adminTable td,
+.adminTable th {
+  text-align: center;
+}
+
+.adminTable .container {
+  text-align: center;
+  padding-right: 100px;
+}
+
+.adminTable .container {
+  border-right: 1px solid #75ba75;
+  padding-right: 90px;
+  color: #888888;
+}
+
+.adminTable .container a {
+  text-decoration: none;
+  color: #888888;
+}
+
+.adminTable .container a:hover {
+  color: #333;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.container button {
+  background-color: #75ba75;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  width: 100px;
+  margin-top: 150px;
+}
+
+.container button:hover {
+  background-color: #888888;
+}

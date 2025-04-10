@@ -1,0 +1,109 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-family: 'Playfair', serif;
+  font-size: 62.5%;
+}
+body {
+  font-family: 'Lora', serif;
+  font-size: 16px;
+  background-color: #e7e7e7;
+}
+#calendar {
+  margin-bottom: 150px;
+}
+.myModal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  display: none; /* Initially hidden */
+  width: 100%;
+  height: 100%;
+  height: auto;
+  background: transparent;
+  border: 1px solid #ccc;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.modal-content {
+  width: 600px;
+  height: auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.myModal.active {
+  display: block; /* Displayed when active */
+}
+.modal-content form label {
+  margin-bottom: 5px;
+}
+.myModal h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+.myModal .radio {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+input#travelYes,
+input#travelNo {
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+}
+div.radio {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+  width: 150px;
+  height: 20px;
+}
+form input {
+  margin: 5px;
+}
+input#adress {
+  margin-bottom: 20px;
+}
+div.textArea {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  textarea {
+    resize: none;
+    height: 50px;
+  }
+}
+.myModal p {
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+}
+.myModal button {
+  font-size: 1.6rem;
+  padding: 10px 20px;
+  background-color: #75ba75;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}

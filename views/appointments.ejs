@@ -41,8 +41,15 @@
               <button type="submit">Logare</button>
               <button id="register">Inregistrare</button>
             </div>
+            <div class="forgotPassword">
+              <a href="/forgotpassword">Am uitat parola</a>
+            </div>
+
             <% if(messages.error){%> <%= messages.error %> <%}%>
           </form>
+          <div id="successMessage" style="display: none" class="success-banner">
+            Parola a fost schimbată cu succes. Te poți conecta acum.
+          </div>
         </div>
       </section>
     </main>

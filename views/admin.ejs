@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/stylesheets/admin.css" />
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+    <title>Admin Page</title>
+  </head>
+  <body>
+    <%- include('partials/header'); -%>
+    <div class="textCenter">
+      <h1>Programari</h1>
+      <p>
+        Aici poti vizualiza toate programarile efectuate de utilizatori. Poti
+        adauga, edita sau sterge programari.
+      </p>
+      <p>
+        Daca vrei sa adaugi o programare, apasa pe butonul de mai jos. Daca vrei
+        sa editezi sau sa stergi o programare, apasa pe butonul de editare sau
+        stergere din dreptul programarii.
+      </p>
+    </div>
+    <div class="wrapper">
+      <div class="container">
+        <button class="addUser" type="submit">Adauga Programare</button>
+        <table class="adminTable">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Prenume</th>
+              <th class="name">Nume</th>
+              <th class="date">Data</th>
+              <th class="hour">Ora</th>
+              <th>Mentiuni</th>
+              <th>Email</th>
+              <th>Numar telefon</th>
+              <th>Afectiuni</th>
+              <th>Deplasare</th>
+              <th>Adresa</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% appointments.forEach(appointment => { %>
+            <tr>
+              <td><%= appointment.id %></td>
+              <td><%= appointment.firstname %></td>
+              <td><%= appointment.lastname %></td>
+              <td><%= appointment.selectedDate %></td>
+              <td><%= appointment.selectedTime %></td>
+              <td><%= appointment.message %></td>
+              <td><%= appointment.email %></td>
+              <td><%= appointment.phone %></td>
+              <td><%= appointment.details %></td>
+              <td><%= appointment.move %></td>
+              <td><%= appointment.address %></td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+
+      <%- include('partials/footer'); -%>
+    </div>
+
+    <script src="/javascripts/admin.js"></script>
+  </body>
+</html>

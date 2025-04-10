@@ -19,6 +19,7 @@ body {
   margin: 40px 0;
   font-family: 'Playfair', serif;
 }
+
 main {
   display: flex;
   flex-direction: row;
@@ -27,6 +28,20 @@ main {
   height: 50vh;
   width: 100vw;
   gap: 50px;
+  margin-bottom: 70px;
+}
+.calendar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  width: 100vw;
+  gap: 50px;
+  margin-top: 150px;
+}
+#calendar {
+  max-height: 355px;
 }
 .appointment,
 .login {
@@ -62,6 +77,7 @@ main {
   gap: 10px;
   color: #888888;
 }
+
 form button {
   background-color: #75ba75;
   border: none;
@@ -97,6 +113,9 @@ form input {
   height: 400px; /* Height of the modal */
   overflow: hidden; /* Disable scroll */
 }
+.modal button {
+  margin-top: 30px;
+}
 
 /* Modal Content/Box */
 .modal-content {
@@ -129,14 +148,54 @@ form input {
   font-size: 1.2rem;
   margin-top: 10px;
 }
+.appointmentCalendar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-left: 100px;
+}
+@keyframes moveLeftRight {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
 
 footer {
-  position: fixed;
-  bottom: 0;
   width: 100%;
   background-color: #75ba75;
   color: white;
   text-align: center;
   padding: 10px 0;
   font-family: 'Lora', serif;
+}
+.forgotPassword a {
+  color: #888888;
+  font-size: 1.4rem;
+  text-align: center;
+  padding-bottom: 10px;
+  margin-top: 20px;
+  text-decoration: none;
+}
+.success-banner {
+  background-color: #d4edda;
+  color: #75ba75;
+  border: 1px solid #c3e6cb;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  text-align: center;
+  font-weight: bold;
 }

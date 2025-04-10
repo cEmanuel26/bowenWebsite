@@ -1,6 +1,6 @@
 // firebase.js
-import { initializeApp } from 'firebase/app';
-import { getAuth } from 'firebase/auth';
+const { initializeApp } = require('firebase/app');
+const { getDoc, addDoc } = require('firebase/firestore');
 
 const firebaseConfig = {
   apiKey: 'AIzaSyANAWA2zQbcyWFfDa5tYfLdUjLl-YEzXDM',
@@ -18,5 +18,6 @@ const firebaseConfig = {
   measurementId: 'G-TBD5KK1YJC',
 };
 
-const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
+const firebaseApp = initializeApp(firebaseConfig);
+module.exports = { firebaseApp };
+//Detect auth state

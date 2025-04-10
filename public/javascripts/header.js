@@ -9,27 +9,17 @@ window.addEventListener('scroll', () => {
     }
   }
 });
-document.addEventListener('DOMContentLoaded', () => {
-  const header = document.querySelector('.headerContainer');
-  // const listItems = header.querySelectorAll('li');
-});
 
-const programare = document.querySelector('.programare h4');
+//removes log out button if user is not logged in
 document.addEventListener('DOMContentLoaded', () => {
-  const header = document.querySelector('.headerContainer');
-  // const listItems = header.querySelectorAll('li');
+  const logoutButton = document.querySelector('.logoutButton');
+  const loggedIn = document.querySelector('.loggedIn');
 
-  const programare = document.querySelector('.programare h4');
-  if (programare && logoutButton) {
-    if (!programare.textContent.trim()) {
-      logoutButton.remove();
+  if (loggedIn && logoutButton) {
+    if (loggedIn.textContent && loggedIn.textContent.trim() !== '') {
+      logoutButton.style.display = 'block';
+    } else {
+      logoutButton.style.display = 'none';
     }
-  }
-
-  const programareLink = document.querySelector('.programare a');
-  if (logoutButton && programareLink) {
-    programareLink.remove();
-  } else if (!logoutButton && programareLink) {
-    programareLink.style.display = 'block';
   }
 });
