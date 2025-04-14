@@ -1,7 +1,6 @@
 node_modules/
 #Environment Variables
 .env
-server.js
 apiKey.json
 serviceAccountKey.json
 
