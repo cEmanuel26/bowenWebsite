@@ -8,10 +8,18 @@ const {
   query,
   where,
   updateDoc,
+  deleteDoc,
 } = require('firebase/firestore');
 const { randomUUID } = require('crypto');
+const {
+  createUserWithEmailAndPassword,
+  sendEmailVerification,
+} = require('firebase/auth');
+const { getAuth } = require('firebase-admin/auth');
 const path = require('path');
 const { firebaseApp } = require('../firebase');
+const { getStorage } = require('firebase-admin/storage');
+const admin = require('firebase-admin');
 const firebaseAdmin = require('firebase-admin');
 const bcrypt = require('bcrypt');
 // Initialize Firebase Admin SDK with your service account credentials
@@ -24,9 +32,10 @@ if (!firebaseAdmin.apps.length) {
       ))
     ),
     databaseURL: 'https://bowentherapy-42520.firebaseio.com',
+    storageBucket: 'gs://bowentherapy-42520.firebasestorage.app',
   });
 }
-
+const auth = getAuth();
 const db = firebaseAdmin.firestore(); // Initialize Firestore
 class User {
   constructor(username, password) {
@@ -98,21 +107,150 @@ async function getAppointments() {
     throw error;
   }
 }
+async function addReview(userId, name, rating, reviewText) {
+  try {
+    // Get the user's email
+    const user = await getUserById(userId);
+
+    if (!user) {
+      throw new Error('User not found');
+    }
+
+    const reviewData = {
+      userId,
+      name,
+      email: user.email,
+      rating: parseInt(rating),
+      reviewText,
+      createdAt: new Date().toISOString(),
+      approved: false, // Admin needs to approve reviews before they appear
+    };
+
+    const docRef = await addDoc(collection(firestore, 'reviews'), reviewData);
+    console.log('Review added with ID:', docRef.id);
+    return docRef.id;
+  } catch (error) {
+    console.error('Error adding review:', error);
+    throw error;
+  }
+}
+
+async function getApprovedReviews() {
+  try {
+    const q = query(
+      collection(firestore, 'reviews'),
+      where('approved', '==', true)
+    );
+
+    const querySnapshot = await getDocs(q);
+    const reviews = [];
+
+    // Process each review document
+    for (const doc of querySnapshot.docs) {
+      const data = doc.data();
+
+      // Create the base review object
+      const review = {
+        id: doc.id,
+        ...data,
+        createdAt: data.createdAt?.toDate
+          ? data.createdAt.toDate()
+          : new Date(data.createdAt),
+        profilePic: null, // Default value
+      };
+
+      // Try to get the user's profile picture based on userId
+      try {
+        // Query the users collection to find the user by ID
+        const userQuery = query(
+          collection(firestore, 'users'),
+          where('id', '==', data.userId)
+        );
+        const userSnapshot = await getDocs(userQuery);
+
+        // If user is found, get their profile picture
+        if (!userSnapshot.empty) {
+          const userData = userSnapshot.docs[0].data();
+          review.profilePic = userData.profilePic || '/images/account.png'; // Use default if not set
+        } else {
+          review.profilePic = '/images/account.png'; // Default avatar
+        }
+      } catch (userError) {
+        console.error('Error fetching user data for review:', userError);
+        review.profilePic = '/images/account.png'; // Default on error
+      }
+
+      reviews.push(review);
+    }
+
+    // Sort by date (newest first)
+    return reviews.sort((a, b) => b.createdAt - a.createdAt);
+  } catch (error) {
+    console.error('Error getting approved reviews:', error);
+    throw error;
+  }
+}
+
+async function getAllReviews() {
+  try {
+    const querySnapshot = await getDocs(collection(firestore, 'reviews'));
+    const reviews = [];
+
+    querySnapshot.forEach((doc) => {
+      reviews.push({
+        id: doc.id,
+        ...doc.data(),
+      });
+    });
+
+    // Sort by date (newest first)
+    return reviews.sort(
+      (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+    );
+  } catch (error) {
+    console.error('Error getting all reviews:', error);
+    throw error;
+  }
+}
+
+async function approveReview(reviewId) {
+  try {
+    const reviewRef = doc(firestore, 'reviews', reviewId);
+    await updateDoc(reviewRef, {
+      approved: true,
+    });
+    return true;
+  } catch (error) {
+    console.error('Error approving review:', error);
+    throw error;
+  }
+}
+
+async function deleteReview(reviewId) {
+  try {
+    const reviewRef = doc(firestore, 'reviews', reviewId);
+    await deleteDoc(reviewRef);
+    return true;
+  } catch (error) {
+    console.error('Error deleting review:', error);
+    throw error;
+  }
+}
 async function checkAppointments(time, date) {
   try {
-    // Query the database for appointments on the selected date and time
     const appointments = await db
-      .collection('appointments') // Your appointments collection
+      .collection('appointments')
       .where('time', '==', time)
       .where('date', '==', date)
       .get();
 
-    return appointments.size; // Returns the count of appointments at this time
+    return appointments.size; // Return how many users have booked this slot
   } catch (error) {
     console.error('Error checking appointments:', error);
     throw new Error('Failed to check appointments');
   }
 }
+
 async function getUserEmailById(userId) {
   try {
     console.log('Looking for user with ID:', userId); // Log the userId being searched
@@ -218,21 +356,50 @@ async function addAppointment(
   }
 }
 
-async function addUser(email, password, isAdmin = false) {
-  const existingUser = await getUserByEmail(email);
-  if (existingUser) {
-    throw new Error('User already exists with this email');
+async function addUser(email, password) {
+  try {
+    let userRecord;
+
+    try {
+      // Check if user exists in Auth
+      userRecord = await admin.auth().getUserByEmail(email);
+      console.log('User exists in Auth but not in database');
+
+      // Instead of throwing an error, we'll create the missing database entry
+      await db.collection('users').doc(userRecord.uid).set({
+        id: userRecord.uid,
+        email: userRecord.email,
+        isAdmin: false,
+        createdAt: new Date().toISOString(),
+      });
+
+      return userRecord;
+    } catch (checkError) {
+      // User doesn't exist in Auth, create a new one
+      if (checkError.code === 'auth/user-not-found') {
+        userRecord = await admin.auth().createUser({
+          email,
+          password,
+          emailVerified: false,
+        });
+
+        // Save user to Firestore
+        await db.collection('users').doc(userRecord.uid).set({
+          id: userRecord.uid,
+          email: userRecord.email,
+          isAdmin: false,
+          createdAt: new Date().toISOString(),
+        });
+
+        return userRecord;
+      } else {
+        throw checkError;
+      }
+    }
+  } catch (error) {
+    console.error('Error creating user:', error);
+    throw error;
   }
-
-  const userId = randomUUID(); // Generate a unique userId
-  console.log('Saving user with ID:', userId);
-
-  await addDoc(collection(firestore, 'users'), {
-    id: userId, // Store the generated userId in the 'users' document
-    email,
-    password,
-    isAdmin,
-  });
 }
 
 async function getUserByEmail(email) {
@@ -320,4 +487,13 @@ module.exports = {
   saveResetTokenForUser,
   verifyResetToken,
   checkAppointments,
+  // Add new review functions
+  addReview,
+  getApprovedReviews,
+  getAllReviews,
+  approveReview,
+  deleteReview,
+  db,
+  firebaseAdmin,
+  admin,
 };

@@ -14,7 +14,7 @@
 
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
 
-    <title>Document</title>
+    <title>Programari</title>
   </head>
   <body>
     <%- include('partials/header'); -%>
@@ -35,6 +35,55 @@
         <h1>Programari online</h1>
         <div>calendar</div>
         <div id="calendar"></div>
+        <div class="messageAlert">
+          <% if (messages.error) { %>
+          <div
+            class="alert alert-danger"
+            style="
+              background-color: red;
+              color: white;
+              border-radius: 5px;
+              text-align: center;
+              padding: 10px;
+              margin-top: 20px;
+            "
+            id="errorMessage"
+          >
+            <%= messages.error %>
+          </div>
+          <script>
+            setTimeout(() => {
+              const errorMessage = document.getElementById('errorMessage');
+              if (errorMessage) {
+                errorMessage.style.display = 'none';
+              }
+            }, 3000);
+          </script>
+          <% } %> <% if (messages.success) { %>
+          <div
+            class="alert alert-success"
+            style="
+              background-color: #75ba75;
+              color: white;
+              padding: 10px;
+              margin-top: 20px;
+              border-radius: 5px;
+              text-align: center;
+            "
+            id="successMessage"
+          >
+            <%= messages.success %>
+          </div>
+          <script>
+            setTimeout(() => {
+              const successMessage = document.getElementById('successMessage');
+              if (successMessage) {
+                successMessage.style.display = 'none';
+              }
+            }, 3000);
+          </script>
+          <% } %>
+        </div>
       </section>
     </main>
     <div id="myModal" class="modal">
@@ -43,9 +92,9 @@
         <h3 id="modalTitle"></h3>
         <p id="modalDate"></p>
         <form action="/appointmentRegister" method="POST">
-          <label for="lastname">Nume</label>
+          <label for="lastname">Prenume</label>
           <input type="text" id="lastname" name="lastname" required />
-          <label for="firstname">Prenume</label>
+          <label for="firstname">Nume</label>
           <input type="text" id="firstname" name="firstname" required />
           <label for="phone">Telefon</label>
           <input type="number" id="phone" name="phone" required />
@@ -92,7 +141,6 @@
 
     <%- include('partials/footer'); -%>
 
-    <script src="/javascripts/header.js"></script>
     <script src="/javascripts/appointmentsLogged.js"></script>
   </body>
 </html>

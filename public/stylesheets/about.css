@@ -195,3 +195,110 @@ header h1 {
   margin-right: auto;
   margin-left: auto;
 }
+
+/* Media Queries for Responsiveness */
+
+@media (max-width: 1200px) {
+  .heroTextSide {
+    flex-direction: column;
+    gap: 50px;
+  }
+  .heroImage .container {
+    flex-direction: column;
+    gap: 50px;
+  }
+  .heroTextSide h2 {
+    min-width: 100%;
+    text-align: center;
+    border-right: none;
+  }
+  .heroImage h1 {
+    font-size: 4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 56.25%; /* 14px */
+  }
+  header {
+    height: 250px;
+  }
+  header h1 {
+    font-size: 4rem;
+    padding-top: 100px;
+  }
+  .heroTextSide {
+    margin-top: 100px;
+    gap: 30px;
+  }
+  .heroTextSide h2 {
+    font-size: 2rem;
+  }
+  .heroTextSide p {
+    font-size: 1.2rem;
+  }
+  .heroImage .container {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .heroImage h2 {
+    font-size: 1.8rem;
+  }
+  .heroImage p {
+    font-size: 1.2rem;
+  }
+  .heroTerapeut section {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .sideText p {
+    width: 90%;
+  }
+  .factsContainer {
+    width: 90%;
+    margin-top: 50px;
+    margin-bottom: 30px;
+  }
+  .facts h2 {
+    font-size: 2.5rem;
+  }
+  .terapeutImg img {
+    height: 120px;
+    width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    height: 200px;
+  }
+  header h1 {
+    font-size: 3rem;
+    padding-top: 80px;
+  }
+  .heroTextSide {
+    gap: 20px;
+  }
+  .heroImage h1 {
+    font-size: 3rem;
+  }
+  .heroImage h2 {
+    font-size: 1.5rem;
+  }
+  .heroImage p {
+    font-size: 1.1rem;
+  }
+  .sideText h2 {
+    font-size: 2.5rem;
+  }
+  .sideText p {
+    font-size: 1.1rem;
+  }
+  .terapeutImg p {
+    font-size: 1.5rem;
+  }
+  .factsContainer {
+    width: 100%;
+  }
+}

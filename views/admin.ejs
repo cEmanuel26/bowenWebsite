@@ -22,34 +22,58 @@
         adauga, edita sau sterge programari.
       </p>
       <p>
-        Daca vrei sa adaugi o programare, apasa pe butonul de mai jos. Daca vrei
-        sa editezi sau sa stergi o programare, apasa pe butonul de editare sau
-        stergere din dreptul programarii.
+        Daca vrei sa editezi sau sa stergi o programare, apasa pe butonul de
+        editare sau stergere din dreptul programarii.
       </p>
     </div>
     <div class="wrapper">
       <div class="container">
-        <button class="addUser" type="submit">Adauga Programare</button>
         <table class="adminTable">
           <thead>
             <tr>
-              <th>Id</th>
               <th>Prenume</th>
-              <th class="name">Nume</th>
-              <th class="date">Data</th>
-              <th class="hour">Ora</th>
+              <th class="name">
+                Nume
+                <button class="sortButton sortName" type="button"></button>
+                <input
+                  type="text"
+                  id="searchByName"
+                  placeholder="Cauta dupa nume"
+                  onkeyup="searchTable('name')"
+                />
+              </th>
+
+              <th class="date">
+                Data<button class="sortButton sortDate" type="button"></button>
+                <input
+                  type="text"
+                  id="searchByDate"
+                  placeholder="Cauta data"
+                  onkeyup="searchTable('date')"
+                />
+              </th>
+              <th class="hour">
+                Ora<button class="sortButton sortHour" type="button"></button>
+                <input
+                  type="text"
+                  id="searchByHour"
+                  placeholder="Cauta ora"
+                  onkeyup="searchTable('hour')"
+                />
+              </th>
               <th>Mentiuni</th>
               <th>Email</th>
               <th>Numar telefon</th>
               <th>Afectiuni</th>
               <th>Deplasare</th>
               <th>Adresa</th>
+              <th>Edit/Sterge</th>
             </tr>
           </thead>
           <tbody>
             <% appointments.forEach(appointment => { %>
             <tr>
-              <td><%= appointment.id %></td>
+              <td style="display: none"><%= appointment.id %></td>
               <td><%= appointment.firstname %></td>
               <td><%= appointment.lastname %></td>
               <td><%= appointment.selectedDate %></td>
@@ -60,10 +84,54 @@
               <td><%= appointment.details %></td>
               <td><%= appointment.move %></td>
               <td><%= appointment.address %></td>
+              <td>
+                <button
+                  class="editButton"
+                  type="submit"
+                  data-id="<%= appointment.id %>"
+                ></button>
+                <button
+                  class="deleteButton"
+                  type="submit"
+                  data-id="<%= appointment.id %>"
+                ></button>
+              </td>
             </tr>
             <% }) %>
           </tbody>
         </table>
+        Pagination Controls
+        <div class="pagination">
+          <% if (currentPage > 1) { %>
+          <a href="/admin?page=<%= currentPage - 1 %>">&laquo; Prev</a>
+          <% } %>
+
+          <span>Page <%= currentPage %> of <%= totalPages %></span>
+
+          <% if (currentPage < totalPages) { %>
+          <a href="/admin?page=<%= currentPage + 1 %>">Next &raquo;</a>
+          <% } %>
+        </div>
+      </div>
+      <div id="editModal" class="modal" style="display: none">
+        <div class="modal-content">
+          <span class="close-button" id="closeModal">&times;</span>
+          <h2>Editeaza Programare</h2>
+          <form id="editForm">
+            <input type="hidden" id="editId" />
+            <label>Prenume: <input type="text" id="editFirstname" /></label>
+            <label>Nume: <input type="text" id="editLastname" /></label>
+            <label>Data: <input type="date" id="editDate" /></label>
+            <label>Ora: <input type="time" id="editTime" /></label>
+            <label>Email: <input type="email" id="editEmail" /></label>
+            <label>Telefon: <input type="text" id="editPhone" /></label>
+            <label>Mentiuni: <textarea id="editMessage"></textarea></label>
+            <label>Afectiuni: <input type="text" id="editDetails" /></label>
+            <label>Deplasare: <input type="text" id="editMove" /></label>
+            <label>Adresa: <input type="text" id="editAddress" /></label>
+            <button type="submit">Salveaza</button>
+          </form>
+        </div>
       </div>
 
       <%- include('partials/footer'); -%>

@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="/stylesheets/header.css" />
 <div class="headerContainer">
   <div class="logo">
-    <img src="images/LogoLavender.png" alt="arbore de lavandă logo " />
+    <img src="../images/LogoLavender.png" alt="arbore de lavandă logo " />
   </div>
   <div class="logoText">
     <img
@@ -33,22 +33,40 @@
       <a href="/contact">Contact</a>
       <div class="underline"></div>
     </li>
-    <% if (isAdmin) { %>
+
+    <% if (isAdmin) {%>
     <li><a href="/admin">Dashboard</a></li>
-    <% } %> <% if (email) %>
+    <li><a href="/admin/reviews">Reviews</a></li>
+    <% } %>
   </div>
+  <% if (email) { %>
   <div class="right-side programare">
-    <div class="loggedIn">
-      <% if (email) { %>
-      <h4><%= email %></h4>
-      <% } else { %>
-      <h4></h4>
-      <% } %>
+    <!-- User profile with dropdown -->
+    <div class="profile-container">
+      <div class="profile-picture" id="profileToggle">
+        <img
+          src="<%= user.profilePic || '/images/account.png' %>"
+          alt="User"
+          id="profileImg"
+        />
+      </div>
+      <div class="dropdown-menu" id="profileDropdown">
+        <p><%= email %></p>
+        <a href="/reviews">Lasa un review</a>
+        <a href="#" id="openUploadModal">Upload imagine de profil</a>
+      </div>
     </div>
+
+    <!-- Log out button (always visible when logged in) -->
     <form action="/logout?_method=DELETE" method="POST">
-      <button class="logoutButton" type="submit">Log out</button>
+      <button type="submit" class="logoutButton">Log out</button>
     </form>
-    <a href="/appointments">Programari</a>
+
+    <!-- Appointments link -->
+    <% } %> <%- include('./uploadModal.ejs'); -%>
+    <div class="programare">
+      <a href="/appointments">Programari</a>
+    </div>
   </div>
 </div>
 

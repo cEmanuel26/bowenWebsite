@@ -40,7 +40,7 @@
       <!-- Contact Form -->
       <section id="contact-form">
         <h2>Trimite-ne un mesaj</h2>
-        <form action="/submit-form" method="POST">
+        <form action="/contact-form" method="POST">
           <label for="name">Numele tău:</label>
           <input type="text" id="name" name="name" required />
 
@@ -49,10 +49,20 @@
 
           <label for="message">Ce conține mesajul tău:</label>
           <textarea id="message" name="message" rows="4" required></textarea>
+          <!-- Honeypot Field (hidden) -->
+          <div style="display: none">
+            <label for="honeypot">Leave this field empty:</label>
+            <input type="text" id="honeypot" name="honeypot" />
+          </div>
 
           <button class="mesaj" type="submit">Trimite mesaj</button>
         </form>
       </section>
+      <% if (messages.error) { %>
+      <div class="alert alert-danger"><%= messages.error %></div>
+      <% } %> <% if (messages.success) { %>
+      <div class="alert alert-success"><%= messages.success %></div>
+      <% } %>
 
       <!-- Map Section -->
       <section id="map">
@@ -80,6 +90,5 @@
     </div>
     <%- include('partials/footer'); -%>
   </body>
-  <script src="/javascripts/header.js"></script>
   <script src="/javascripts/contact.js"></script>
 </html>

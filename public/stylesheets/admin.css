@@ -14,15 +14,18 @@ body {
   font-size: 16px;
   background-color: #e7e7e7;
 }
+
 .wrapper {
   min-height: 20vh; /* Ensure the wrapper takes the full viewport height */
   display: flex;
   flex-direction: column;
 }
+
 .textCenter {
   text-align: center;
   margin-top: 200px;
 }
+
 .textCenter p {
   font-size: 2rem;
   color: #888888;
@@ -30,18 +33,22 @@ body {
   margin: 0 auto;
   margin-top: 10px;
 }
+
 footer {
   margin-top: auto; /* Push the footer to the bottom when content is insufficient */
 }
+
 .container {
   flex: 1;
 }
+
 .adminTable {
   width: 100%;
   margin: 0 auto;
   padding-top: 20px;
   padding-bottom: 20px;
   text-align: center;
+  table-layout: fixed; /* Ensure consistent column widths */
 }
 
 .adminTable table {
@@ -64,6 +71,7 @@ footer {
   background-color: #f2f2f2;
   cursor: pointer;
   font-size: 1.4rem;
+  position: relative; /* Ensure header is positioned properly */
 }
 
 .adminTable th.id {
@@ -77,6 +85,7 @@ footer {
 .adminTable th.date,
 .adminTable th.hour {
   width: auto; /* Let the "Date" and "Hour" columns adjust based on content */
+  position: relative; /* Ensure inputs stay within the header */
 }
 
 .adminTable th.mentiuni,
@@ -150,4 +159,166 @@ footer {
 
 .container button:hover {
   background-color: #888888;
+}
+
+button.editButton,
+button.deleteButton,
+button.sortButton {
+  width: 25px;
+  height: 25px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  margin: 0 auto;
+  margin-bottom: 3px;
+}
+
+button.editButton {
+  background-image: url(/images/editIcon.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+button.deleteButton {
+  background-image: url(/images/deleteIcon.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+button.editButton:hover,
+button.deleteButton:hover,
+button.sortButton:hover {
+  background-color: #75ba75;
+}
+
+button.editButton:active,
+button.deleteButton:active,
+button.sortButton:active {
+  background-color: #ddd;
+}
+
+button.editButton:focus,
+button.deleteButton:focus,
+button.sortButton:focus {
+  outline: none;
+}
+
+button.sortButton {
+  display: inline-block;
+  background-image: url(/images/filterIcon.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  margin-left: 10px;
+  width: 15px;
+  height: 15px;
+  top: 50%; /* Center the button vertically */
+  right: 10px; /* Position the button within the header */
+  transform: translateY(-135%); /* Center the button properly */
+  z-index: 1; /* Ensure the button is above the input field */
+}
+
+#searchByName,
+#searchByDate,
+#searchByHour {
+  margin-top: 10px;
+  text-align: center;
+  position: relative;
+}
+
+th.date input,
+th.hour input,
+th.name input {
+  width: 100%;
+  box-sizing: border-box; /* Prevent the input from overflowing */
+}
+
+th input {
+  max-width: 150px; /* Limit input width to prevent overflow */
+  margin: 0 auto; /* Center the input inside the header */
+}
+/* Modal Overlay */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fff;
+  margin: 5% auto;
+  padding: 2rem;
+  border: 1px solid #888;
+  width: 90%;
+  max-width: 600px;
+  border-radius: 12px;
+  font-family: 'Lora', serif;
+  position: relative;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Close Button */
+.close-button {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.close-button:hover {
+  color: #333;
+}
+
+/* Form Fields */
+#editForm label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+#editForm input,
+#editForm textarea {
+  width: 100%;
+  padding: 8px 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 16px;
+}
+
+/* Submit Button */
+#editForm button[type='submit'] {
+  background-color: #006400;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#editForm button[type='submit']:hover {
+  background-color: #008000;
 }

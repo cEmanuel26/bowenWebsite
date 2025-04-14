@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Email Verification Required</title>
+    <style>
+      body {
+        font-family: 'lora', sans-serif;
+        line-height: 1.6;
+        color: #333;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f7fa;
+      }
+
+      .verification-container {
+        max-width: 600px;
+        margin: 40px auto;
+        padding: 30px;
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        text-align: center;
+      }
+
+      .verification-icon {
+        width: 80px;
+        height: 80px;
+        margin: 0 auto 20px;
+        background-color: #e3f2fd;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .verification-icon svg {
+        width: 40px;
+        height: 40px;
+        fill: #75ba75;
+      }
+
+      h2 {
+        color: #2c3e50;
+        font-size: 28px;
+        margin-bottom: 16px;
+      }
+
+      p {
+        font-size: 16px;
+        color: #546e7a;
+        margin-bottom: 30px;
+        line-height: 1.8;
+      }
+
+      .btn {
+        display: inline-block;
+        background-color: #75ba75;
+        color: white;
+        font-weight: 600;
+        text-decoration: none;
+        padding: 12px 30px;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+      }
+
+      .btn:hover {
+        background-color: #1976d2;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(33, 150, 243, 0.3);
+      }
+
+      .additional-info {
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 1px solid #e0e0e0;
+        font-size: 14px;
+        color: #78909c;
+      }
+
+      /* You can keep your existing header and footer styles */
+    </style>
+  </head>
+  <body>
+    <%- include('partials/header'); -%>
+
+    <div class="verification-container">
+      <div class="verification-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path
+            d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V8l8 5 8-5v10zm-8-7L4 6h16l-8 5z"
+          />
+        </svg>
+      </div>
+
+      <h2>Multumim pentru inregistrare!</h2>
+
+      <p>
+        Am trimis un link de verificare la adresa ta de email. Te rugăm să
+        verifici inbox-ul și să dai click pe link pentru a-ți verifica contul.
+        <br />
+        După verificare, vei putea să te autentifici și să îți rezervi
+        programările.
+      </p>
+
+      <a href="/appointments" class="btn">Go back to login</a>
+
+      <div class="additional-info">
+        <p>
+          Dacă nu vezi emailul în inbox, te rugăm să verifici folderul de spam.
+        </p>
+        <p>Link-ul de verificare va expira în 24 de ore.</p>
+      </div>
+    </div>
+
+    <%- include('partials/footer'); -%>
+  </body>
+</html>

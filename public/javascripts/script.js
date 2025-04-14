@@ -1,7 +1,11 @@
 const openSigns = document.querySelectorAll('.intrebare span .arrow-down');
 const closeSigns = document.querySelectorAll('.intrebare span .arrow-up');
 const paragraphFaq = document.querySelectorAll('.intrebare p');
-
+const appointment = document.querySelector('.btnProgramare');
+const appointmentTherapeut = document.querySelector('.btnTerapeutProgramare');
+const findMore = document.querySelector('.btnDescopera');
+const aboutBowen = document.querySelector('.aboutBowen');
+const benefits = document.querySelector('.btnBeneficii');
 function hideParagraphs() {
   paragraphFaq.forEach((paragraph) => {
     paragraph.style.display = 'none';
@@ -78,3 +82,10 @@ closeSigns.forEach((closeSign, index) => {
     showOpenSign(index);
   });
 });
+
+appointment.onclick = () => (window.location.href = '/appointments');
+appointmentTherapeut.onclick = () => (window.location.href = '/appointments');
+
+findMore.onclick = () => (window.location.href = '/benefits');
+aboutBowen.onclick = () => (window.location.href = '/about');
+benefits.onclick = () => (window.location.href = '/benefits');

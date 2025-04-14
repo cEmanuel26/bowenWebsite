@@ -83,7 +83,7 @@
                 specifice ale corpului, alternând cu perioade de repaus pentru a
                 permite organismului să proceseze și să răspundă la tratament.
               </h2>
-              <button class="btnDescopera">Descopera tehnica bowen</button>
+              <button class="aboutBowen">Descopera tehnica bowen</button>
             </div>
           </div>
           <div class="secondLine">
@@ -1793,43 +1793,42 @@
         <div class="centerTestimonials">
           <h1>Ce spun pacientii despre terapia bowen</h1>
           <div class="testimonialsContainer">
-            <div class="testimonial">
-              <img src="images/christopher-campbell-rDEOVtE7vOs-unsplash.jpg" alt="testimonial1" />
-              <div>
-                <h2>Ameliorare dureri de spate</h2>
-                <p>
-                  "Am fost diagnosticat cu hernie de disc și am încercat tot felul
-                  de tratamente fără rezultate. Terapia Bowen a fost singura care
-                  mi-a adus ameliorare și mi-a redat mobilitatea."
-                </p>
+            <% if (reviews && reviews.length > 0) { %>
+              <div class="reviews-container">
+                <% reviews.forEach(review => { %>
+                  <div class="review-card">
+                    <div class="review-header">
+                      <div class="review-author"><%= review.name %>
+                        <div class="review-author-image">
+                          <img src="<%= review.profilePic %>" class="userPicture" alt="User Image" />
+                        </div>
+                      </div>
+                      
+                      <div class="review-rating">
+                        <% for(let i = 0; i < 5; i++) { %>
+                          <% if (i < review.rating) { %>
+                            <span class="star filled">★</span>
+                          <% } else { %>
+                            <span class="star">★</span>
+                          <% } %>
+                        <% } %>
+                      </div>
+                    </div>
+                    <div class="review-content">
+                      "<%= review.reviewText %>"
+                    </div>
+                    <div class="review-date">
+                      <%= new Date(review.createdAt).toLocaleDateString('ro-RO') %>
+                    </div>
+                  </div>
+                <% }) %>
               </div>
-            </div>
-            <div class="testimonial">
-              <img src="images/christopher-campbell-rDEOVtE7vOs-unsplash.jpg" alt="testimonial2" />
-              <div>
-                <h2>Recuperare dupa accidentare</h2>
-                <p>
-                  "După o accidentare la genunchi, am avut dureri constante și
-                  dificultăți în mișcare. Terapia Bowen m-a ajutat să recuperez
-                  rapid și să îmi recâștig încrederea în corpul meu. Recomand cu
-                  căldură această metodă."
-                </p>
-              </div>
-            </div>
-            <div class="testimonial">
-              <img src="/images/christopher-campbell-rDEOVtE7vOs-unsplash.jpg" alt="testimonial3" />
-              <div>
-                <h2>Stres și anxietate</h2>
-                <p>
-                  "Am fost mereu stresat și anxios, iar asta se reflecta în
-                  durerile de spate și de gât. Terapia Bowen m-a ajutat să mă
-                  relaxez profund și să îmi regăsesc echilibrul interior. Sunt
-                  recunoscător pentru această metodă minunată."
-                </p>
-              </div>
-            </div>
+            <% } else { %>
+              <p class="no-reviews">Nu există încă recenzii. Fiți primul care lasă o părere despre serviciile noastre!</p>
+            <% } %>
           </div>
-          <button class="btnTestimonial">Lasa un review</button>
+            <button class="btnTestimonial" onclick="window.location.href='/reviews'">Lasa un review</button>
+            <p class="reviewLogged">* Pentru a lăsa un review, trebuie să vă logați.</p>
 
       </section>
 
@@ -1852,11 +1851,11 @@
         </div>
       </section>
     </main>
-    <%- include('partials/footer'); -%>
+
+      <%- include('partials/footer'); -%>
 
   </body>
   <script src="/javascripts/script.js"></script>
   <script src="/javascripts/humanSvgScript.js"></script>
-  <script src="/javascripts/header.js"></script>
 
 </html>

@@ -1,3 +1,16 @@
+node_modules/
+#Environment Variables
 .env
-node_modules
 server.js
+apiKey.json
+serviceAccountKey.json
+
+# Logs
+*.log
+
+
+#Firebase/Passport private config
+
+firebase.js
+passport-config.js
+bowentherapy-42520-firebase-adminsdk-fbsvc-1f75f8b89c.json

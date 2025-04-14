@@ -414,3 +414,99 @@ button:hover {
   background-color: #5cb85c;
   cursor: pointer;
 }
+.testimonials {
+  padding: 60px 0;
+  background-color: #f9f7fe;
+}
+
+.testimonials h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #533b78;
+}
+
+.reviews-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.review-card {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 25px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 350px;
+}
+
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.review-author {
+  font-weight: 600;
+  font-size: 18px;
+  color: #333;
+  text-align: center;
+  max-width: 16ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.review-rating {
+  font-size: 18px;
+  margin-bottom: 100px;
+}
+
+.star {
+  color: #ddd;
+}
+
+.star.filled {
+  color: #ffb700;
+}
+
+.review-content {
+  font-style: italic;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.review-date {
+  font-size: 14px;
+  color: #777;
+  text-align: right;
+}
+
+.no-reviews {
+  text-align: center;
+  color: #777;
+  font-style: italic;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 768px) {
+  .review-card {
+    max-width: 100%;
+  }
+}
+.userPicture {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.reviewLogged {
+  text-align: center;
+  color: #888888;
+  font-family: 'lora', serif;
+  font-size: 1rem;
+  margin-top: -50px;
+}
