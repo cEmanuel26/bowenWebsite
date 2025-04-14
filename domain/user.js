@@ -15,6 +15,7 @@ const {
   createUserWithEmailAndPassword,
   sendEmailVerification,
 } = require('firebase/auth');
+require('dotenv').config();
 const { getAuth } = require('firebase-admin/auth');
 const path = require('path');
 const { firebaseApp } = require('../firebase');
@@ -24,16 +25,16 @@ const firebaseAdmin = require('firebase-admin');
 const bcrypt = require('bcrypt');
 // Initialize Firebase Admin SDK with your service account credentials
 if (!firebaseAdmin.apps.length) {
-  firebaseAdmin.initializeApp({
-    credential: firebaseAdmin.credential.cert(
-      require(path.join(
-        __dirname,
-        './bowentherapy-42520-firebase-adminsdk-fbsvc-1f75f8b89c.json'
-      ))
-    ),
-    databaseURL: 'https://bowentherapy-42520.firebaseio.com',
-    storageBucket: 'gs://bowentherapy-42520.firebasestorage.app',
-  });
+  if (!firebaseAdmin.apps.length) {
+    firebaseAdmin.initializeApp({
+      credential: firebaseAdmin.credential.cert({
+        projectId: process.env.FIREBASE_PROJECT_ID,
+        clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
+        privateKey: process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n'),
+      }),
+      storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+    });
+  }
 }
 const auth = getAuth();
 const db = firebaseAdmin.firestore(); // Initialize Firestore

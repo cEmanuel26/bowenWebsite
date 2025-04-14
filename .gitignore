@@ -14,3 +14,5 @@ serviceAccountKey.json
 firebase.js
 passport-config.js
 bowentherapy-42520-firebase-adminsdk-fbsvc-1f75f8b89c.json
+
+domain/bowentherapy-*.json
