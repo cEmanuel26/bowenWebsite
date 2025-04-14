@@ -249,7 +249,7 @@ app.post('/contact-form', contactFormLimiter, async (req, res) => {
     }
 
     await transporter.sendMail({
-      to: 'terapiabowensiret@gmail.com', // Replace with the specific email address
+      to: process.env.EMAIL_USER_SEND, // Replace with the specific email address
       html: `
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
