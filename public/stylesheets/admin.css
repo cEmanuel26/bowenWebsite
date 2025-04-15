@@ -23,7 +23,7 @@ body {
 
 .textCenter {
   text-align: center;
-  margin-top: 200px;
+  margin-top: 20px;
 }
 
 .textCenter p {
@@ -321,4 +321,7 @@ th input {
 
 #editForm button[type='submit']:hover {
   background-color: #008000;
+}
+.pagination {
+  margin-bottom: 30px;
 }

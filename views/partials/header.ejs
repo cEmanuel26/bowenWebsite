@@ -35,8 +35,15 @@
     </li>
 
     <% if (isAdmin) {%>
-    <li><a href="/admin">Dashboard</a></li>
-    <li><a href="/admin/reviews">Reviews</a></li>
+    <div class="underline"></div>
+    <li>
+      <a href="/admin">Dashboard</a>
+      <div class="underline"></div>
+    </li>
+    <li>
+      <a href="/admin/reviews">Reviews</a>
+      <div class="underline"></div>
+    </li>
     <% } %>
   </div>
   <% if (email) { %>
