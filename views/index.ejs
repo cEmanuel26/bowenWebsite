@@ -12,10 +12,8 @@
     <link rel="stylesheet" href="/stylesheets/humanSvg.css" />
     <link rel="stylesheet" href="/stylesheets/style.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-    <title>
-        Terapia Bowen in Siret / Radauti
-    </title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+    <title>Terapia Bowen in Siret / Radauti</title>
   </head>
   <body>
     <header class="header">
@@ -47,15 +45,15 @@
           </h2>
           <h3>
             <ul>
-              <li> Dureri de spate</li>
-              <li> Dureri de genunchi</li>
-              <li> Sciatica</li>
-              <li> Durerile de gat si umeri</li>
-              <li> Fibromialgia</li>
-              <li> Entorse,Luxatii</li>
-              <li> Hernie de disc</li>
-              <li> Sindromul de tunel carpian</li>
-              <li> Cefalee</li>
+              <li>Dureri de spate</li>
+              <li>Dureri de genunchi</li>
+              <li>Sciatica</li>
+              <li>Durerile de gat si umeri</li>
+              <li>Fibromialgia</li>
+              <li>Entorse,Luxatii</li>
+              <li>Hernie de disc</li>
+              <li>Sindromul de tunel carpian</li>
+              <li>Cefalee</li>
               <li>
                 Alte afectiuni care nu raspund la tratamente conventionale
               </li>
@@ -68,10 +66,7 @@
         <div class="imagesContainer">
           <div class="firstLine">
             <div>
-              <img
-                src="/images/massage1.jpg"
-                alt="tehnica masaj bowen"
-              />
+              <img src="/images/massage1.jpg" alt="tehnica masaj bowen" />
             </div>
             <div class="text">
               <h1>Ce este terapia bowen</h1>
@@ -106,15 +101,11 @@
               <button class="btnBeneficii">Beneficii tehnica bowen</button>
             </div>
             <div>
-              <img
-                src="/images/massage2.jpg"
-                alt="tehnica masaj bowen "
-              />
+              <img src="/images/massage2.jpg" alt="tehnica masaj bowen " />
             </div>
           </div>
         </div>
       </section>
-     
 
       <section class="humanSvg">
         <svg
@@ -1792,44 +1783,107 @@
       <section class="testimonials">
         <div class="centerTestimonials">
           <h1>Ce spun pacientii despre terapia bowen</h1>
-          <div class="testimonialsContainer">
-            <% if (reviews && reviews.length > 0) { %>
-              <div class="reviews-container">
-                <% reviews.forEach(review => { %>
-                  <div class="review-card">
-                    <div class="review-header">
-                      <div class="review-author"><%= review.name %>
-                        <div class="review-author-image">
-                          <img src="<%= review.profilePic %>" class="userPicture" alt="User Image" />
-                        </div>
-                      </div>
-                      
-                      <div class="review-rating">
-                        <% for(let i = 0; i < 5; i++) { %>
-                          <% if (i < review.rating) { %>
-                            <span class="star filled">★</span>
-                          <% } else { %>
-                            <span class="star">★</span>
-                          <% } %>
-                        <% } %>
-                      </div>
-                    </div>
-                    <div class="review-content">
-                      "<%= review.reviewText %>"
-                    </div>
-                    <div class="review-date">
-                      <%= new Date(review.createdAt).toLocaleDateString('ro-RO') %>
+
+          <% if (reviews && reviews.length > 0) { %>
+          <div class="carousel-container">
+            <div class="carousel-track">
+              <!-- Original reviews -->
+              <% reviews.forEach(review => { %>
+              <div class="review-card">
+                <div class="review-header">
+                  <div class="review-author">
+                    <%= review.name %>
+                    <div class="review-author-image">
+                      <img
+                        src="<%= review.profilePic %>"
+                        class="userPicture"
+                        alt="User Image"
+                      />
                     </div>
                   </div>
-                <% }) %>
+                  <div class="review-rating">
+                    <% for(let i = 0; i < 5; i++) { %> <% if (i < review.rating)
+                    { %>
+                    <span class="star filled">★</span>
+                    <% } else { %>
+                    <span class="star">★</span>
+                    <% } %> <% } %>
+                  </div>
+                </div>
+                <div class="review-content">"<%= review.reviewText %>"</div>
+                <div class="review-date">
+                  <%= new Date(review.createdAt).toLocaleDateString('ro-RO') %>
+                </div>
               </div>
-            <% } else { %>
-              <p class="no-reviews">Nu există încă recenzii. Fiți primul care lasă o părere despre serviciile noastre!</p>
-            <% } %>
-          </div>
-            <button class="btnTestimonial" onclick="window.location.href='/reviews'">Lasa un review</button>
-            <p class="reviewLogged">* Pentru a lăsa un review, trebuie să vă logați.</p>
+              <% }) %>
 
+              <!-- Duplicated reviews for infinite scroll effect -->
+              <% reviews.forEach(review => { %>
+              <div class="review-card">
+                <div class="review-header">
+                  <div class="review-author">
+                    <%= review.name %>
+                    <div class="review-author-image">
+                      <img
+                        src="<%= review.profilePic %>"
+                        class="userPicture"
+                        alt="User Image"
+                      />
+                    </div>
+                  </div>
+                  <div class="review-rating">
+                    <% for(let i = 0; i < 5; i++) { %> <% if (i < review.rating)
+                    { %>
+                    <span class="star filled">★</span>
+                    <% } else { %>
+                    <span class="star">★</span>
+                    <% } %> <% } %>
+                  </div>
+                </div>
+                <div class="review-content">"<%= review.reviewText %>"</div>
+                <div class="review-date">
+                  <%= new Date(review.createdAt).toLocaleDateString('ro-RO') %>
+                </div>
+              </div>
+              <% }) %>
+            </div>
+          </div>
+          <% } else { %>
+          <p class="no-reviews">
+            Nu există încă recenzii. Fiți primul care lasă o părere despre
+            serviciile noastre!
+          </p>
+          <% } %>
+
+          <div class="carousel-controls">
+            <button
+              id="prev-btn"
+              class="carousel-control"
+              aria-label="Recenzia anterioară"
+            >
+              ❮
+            </button>
+            <button
+              id="next-btn"
+              class="carousel-control"
+              aria-label="Recenzia următoare"
+            >
+              ❯
+            </button>
+          </div>
+        </div>
+        <br />
+        <div class="leaveReview">
+          <button
+            class="btnTestimonial"
+            onclick="window.location.href='/reviews'"
+          >
+            Lasa un review
+          </button>
+          <p class="reviewLogged">
+            * Pentru a lăsa un review, trebuie să vă logați.
+          </p>
+        </div>
       </section>
 
       <section class="terapeut">
@@ -1852,10 +1906,8 @@
       </section>
     </main>
 
-      <%- include('partials/footer'); -%>
-
+    <%- include('partials/footer'); -%>
   </body>
   <script src="/javascripts/script.js"></script>
   <script src="/javascripts/humanSvgScript.js"></script>
-
 </html>

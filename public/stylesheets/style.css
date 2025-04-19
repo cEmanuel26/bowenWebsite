@@ -510,3 +510,199 @@ button:hover {
   font-size: 1rem;
   margin-top: -50px;
 }
+
+.testimonials {
+  padding: 60px 0;
+  background-color: #f9f9f9;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.centerTestimonials {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+}
+
+.centerTestimonials h1 {
+  margin-bottom: 40px;
+  color: #333;
+  font-size: 2rem;
+}
+
+/* Carousel Container */
+.carousel-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto 40px;
+}
+
+/* Carousel Track */
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease;
+  animation: scroll 40s linear infinite;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(
+      -50%
+    ); /* Move by the width of the duplicated content */
+  }
+}
+
+/* Review Cards */
+.review-card {
+  flex: 0 0 300px;
+  margin: 0 15px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  text-align: left;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.review-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Review Header */
+.review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.review-author {
+  font-weight: 600;
+  color: #333;
+}
+
+.review-author-image {
+  margin-left: 10px;
+}
+
+.userPicture {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Stars */
+.review-rating {
+  display: flex;
+}
+
+.star {
+  color: #ddd;
+  font-size: 18px;
+}
+
+.star.filled {
+  color: #ffb700;
+}
+
+/* Review Content */
+.review-content {
+  margin-bottom: 15px;
+  color: #555;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+/* Review Date */
+.review-date {
+  font-size: 14px;
+  color: #999;
+  text-align: right;
+}
+
+/* No Reviews Message */
+.no-reviews {
+  padding: 30px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  color: #666;
+  font-style: italic;
+}
+
+/* Button Styles */
+.btnTestimonial {
+  background-color: #75ba75;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 20px;
+}
+
+.btnTestimonial:hover {
+  background-color: #5cb85c;
+}
+
+.reviewLogged {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #666;
+  font-style: italic;
+}
+
+/* Carousel Controls */
+.carousel-controls {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.carousel-control {
+  background-color: #75ba75;
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 18px;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-control:hover {
+  background-color: #5cb85c;
+}
+
+/* Pause animation on hover */
+.carousel-container:hover .carousel-track {
+  animation-play-state: paused;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .review-card {
+    flex: 0 0 260px;
+  }
+
+  .centerTestimonials h1 {
+    font-size: 1.5rem;
+  }
+}
