@@ -1,7 +1,6 @@
 {
   "name": "bowen-therapy-",
   "version": "1.0.0",
-  "description": "",
   "main": "humanSvgScript.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,7 +11,8 @@
     "type": "git",
     "url": "git+https://github.com/cEmanuel26/bowenWebsite.git"
   },
-  "author": "",
+  "author": "Your Name",
+  "description": "A website for Bowen Therapy with booking, authentication, and image upload features.",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/cEmanuel26/bowenWebsite/issues"
@@ -27,15 +27,15 @@
     "express-session": "^1.18.1",
     "firebase": "^11.5.0",
     "firebase-admin": "^13.2.0",
-    "gitleaks": "^1.0.0",
     "method-override": "^3.0.0",
     "multer": "^1.4.5-lts.2",
     "nodemailer": "^6.10.0",
     "passport": "^0.7.0",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "dotenv": "16.5.0"
   },
   "devDependencies": {
-    "dotenv": "^16.4.7",
+    "dotenv": "^16.5.0",
     "nodemon": "^3.1.9",
     "webpack": "^5.98.0",
     "webpack-cli": "^6.0.1"
