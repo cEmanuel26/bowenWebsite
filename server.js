@@ -1,4 +1,4 @@
-var dotenv = require('dotenv');
+const dotenv = require('dotenv');
 const express = require('express');
 const path = require('path');
 const bcrypt = require('bcrypt');
@@ -34,7 +34,7 @@ const upload = multer({ storage: multer.memoryStorage() });
 const app = express();
 const storage = admin.storage();
 const bucket = storage.bucket(); // Use the bucket
-
+console.log('Starting server...');
 // Initialize environment variables
 dotenv.config();
 // Initialize Firebase Admin SDK with your service account credentials
@@ -946,4 +946,7 @@ function isNotLoggedIn(req, res, next) {
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.listen(3000);
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server started on port ${PORT}`);
+});
